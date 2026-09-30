@@ -1,0 +1,18 @@
+{
+  "projectPath": ":",
+  "classpaths": {
+    "test": [
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/classes/java/test",
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/resources/test"
+    ],
+    "client": [
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/classes/java/client",
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/resources/client"
+    ],
+    "main": [
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/classes/java/main",
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/resources/main",
+      "/data/user/0/com.ai.assistance.operit/files/workspace/2966a9ab-b2b1-46d6-a9cc-600c8c39ae3a/smartpickup-fabric/build/devlibs/smartpickup-fabric-1.0.0-dev.jar"
+    ]
+  }
+}
