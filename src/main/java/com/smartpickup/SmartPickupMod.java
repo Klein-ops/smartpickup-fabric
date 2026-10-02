@@ -45,6 +45,7 @@ public final class SmartPickupMod implements ModInitializer {
                 ScreenStateTracker.clear(player.getUUID());
                 RefillHandler.onLogout(player);
             }
+            RejectToastThrottle.clear();
         });
 
         LOGGER.info("Smart Pickup loaded!");

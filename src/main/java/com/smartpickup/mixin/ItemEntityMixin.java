@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.smartpickup.Config;
 import com.smartpickup.PickupHandler;
+import com.smartpickup.RejectToastThrottle;
 import com.smartpickup.network.PickupToastPayload;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -56,9 +57,15 @@ public abstract class ItemEntityMixin {
         // Feature 3: blacklist -> refuse pickup entirely.
         if (Config.blacklistEnabled() && Config.isBlacklisted(itemId)) {
             ci.cancel();
+            // playerTouch fires every tick while the player stands on the
+            // refused item; only send one toast per item entity per cooldown.
             if (Config.toastEnabled() && Config.toastBlacklistRejected()) {
-                ServerPlayNetworking.send((ServerPlayer) player,
-                        new PickupToastPayload(itemId, 0)); // 0 = rejected marker
+                UUID entityId = self.getUUID();
+                long gameTime = ((ServerPlayer) player).level().getGameTime();
+                if (RejectToastThrottle.trySend(entityId, gameTime)) {
+                    ServerPlayNetworking.send((ServerPlayer) player,
+                            new PickupToastPayload(itemId, 0)); // 0 = rejected marker
+                }
             }
             return;
         }
